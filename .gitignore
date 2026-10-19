@@ -8,6 +8,7 @@ contract/target/
 
 # Weighin runtime files
 .weighin-temp-key
+temp_auto_push.bat
 weighin-results.json
 
 # Misc
@@ -18,3 +19,5 @@ weighin-results.json
 .codex/
 AGENTS.override.md
 WEIGHIN_DRIPS_APPEAL_CONTEXT.md
+.gitignore
+branch_structure.json

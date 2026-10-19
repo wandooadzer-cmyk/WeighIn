@@ -9,7 +9,7 @@
   },
   "scripts": {
     "prepack": "npm run build && npm run bundle && node dist/dependency-inventory.js --quiet",
-    "build": "tsc",
+    "build": "node api.js && tsc",
     "bundle": "tsc --noEmit && esbuild src/action.ts --bundle --platform=node --target=node20 --outfile=bundled/index.js --format=cjs && esbuild src/comment-action.ts --bundle --platform=node --target=node20 --outfile=bundled/comment-action.js --format=cjs && node scripts/package-provenance.cjs",
     "provenance": "node scripts/package-provenance.cjs --verify",
     "inventory:generate": "npm run build && node dist/dependency-inventory.js",
