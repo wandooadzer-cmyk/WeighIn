@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Resource-Cost Benchmarking & CI Regression Toolkit for Soroban",
   "main": "dist/measurement.js",
+  "types": "dist/measurement.d.ts",
   "bin": {
     "weighin": "dist/cli.js"
   },
   "scripts": {
     "prepack": "npm run build && npm run bundle && node dist/dependency-inventory.js --quiet",
-    "build": "tsc",
+    "build": "node api.js && tsc",
     "bundle": "tsc --noEmit && esbuild src/action.ts --bundle --platform=node --target=node20 --outfile=bundled/index.js --format=cjs && esbuild src/comment-action.ts --bundle --platform=node --target=node20 --outfile=bundled/comment-action.js --format=cjs && node scripts/package-provenance.cjs",
     "provenance": "node scripts/package-provenance.cjs --verify",
     "inventory:generate": "npm run build && node dist/dependency-inventory.js",
